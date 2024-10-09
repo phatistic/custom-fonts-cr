@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://rishiporwal.github.io/custom-fonts/](https://rishiporwal.github.io/custom-fonts/)
+> Open this page at [https://phatistic.github.io/custom-fonts-cr/](https://phatistic.github.io/custom-fonts-cr/)
 
 ## Use as Extension
 
@@ -10,22 +10,22 @@ This repository can be added as an **extension** in MakeCode.
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
-* search for **https://github.com/rishiporwal/custom-fonts** and import
+* search for **https://github.com/phatistic/custom-fonts-cr** and import
 
-## Edit this project ![Build status badge](https://github.com/rishiporwal/custom-fonts/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://github.com/phatistic/custom-fonts-cr/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/rishiporwal/custom-fonts** and click import
+* paste **https://github.com/phatistic/custom-fonts-cr** and click import
 
 ## Blocks preview
 
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/rishiporwal/custom-fonts/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://github.com/phatistic/custom-fonts-cr/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
