@@ -104,7 +104,7 @@ namespace Fonts {
                     curwidt += letterspace
                 }
                 if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0 ){
-                    curwidt += Math.abs(uwidt - swidt)
+                    curwidt += Math.abs(uwidt - nwidt)
                 }
             } else if (input.charAt(currentletter3) == " ") {
                 curwidt += 3*letterspace
