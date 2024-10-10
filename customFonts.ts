@@ -100,7 +100,7 @@ namespace Fonts {
                 } else {
                     swidt = 0
                 }
-                if (nwidt == 0) && (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0) {
+                if (nwidt == 0 && ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0) {
                     curwidt += letterspace
                 }
                 curwidt += Math.abs(uwidt - swidt)
