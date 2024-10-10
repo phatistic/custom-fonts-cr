@@ -85,7 +85,7 @@ namespace Fonts {
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
 
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt, 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (swidt + Math.abs(swidt - uwidt)), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
                     swidt = uwidt
