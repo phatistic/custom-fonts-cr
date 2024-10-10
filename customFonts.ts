@@ -95,12 +95,12 @@ namespace Fonts {
                     nwidt = 0
                 }
                 drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt - (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
-                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
                     swidt = 0
                 }
-                if (swidt == 0) {
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0) {
                     curwidt += letterspace
                 }
                 curwidt += Math.abs(uwidt - swidt)
