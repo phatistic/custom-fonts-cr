@@ -68,7 +68,8 @@ namespace Fonts {
 
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
-                uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
+                uwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
+                
                 lwidt.push(uwidt)
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] == 0) {
                     swidt = uwidt
@@ -95,7 +96,7 @@ namespace Fonts {
                 }
                 drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt - (Math.abs(nwidt - swidt) % nwidt)), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
-                    swidt = uwidt
+                    swidt = nwidt
                 } else {
                     swidt = 0
                 }
