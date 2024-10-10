@@ -87,18 +87,18 @@ namespace Fonts {
 
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
-                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
-                    swidt = uwidt
-                } else {
-                    swidt = 0
-                }
+                
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
                     nwidt = ligages[(ligs.indexOf(input.charAt(currentletter3)))].width
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
-                
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt + (Math.abs(nwidt - swidt) % nwidt)), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
+                    swidt = uwidt
+                } else {
+                    swidt = 0
+                }
                 if (uwidt > 0) {
                     curwidt += letterspace
                 }
