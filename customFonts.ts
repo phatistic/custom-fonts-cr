@@ -102,6 +102,8 @@ namespace Fonts {
                 }
                 if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0){
                     curwidt += letterspace
+                }
+                if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0 ){
                     curwidt += Math.abs(uwidt - swidt)
                 }
             } else if (input.charAt(currentletter3) == " ") {
