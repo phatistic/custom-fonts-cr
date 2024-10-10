@@ -82,19 +82,17 @@ namespace Fonts {
             }
             widt += 1
         }
-
         let output = image.create(widt, heig)
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
 
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
-                
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
                     nwidt = ligages[(ligs.indexOf(input.charAt(currentletter3)))].width
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt - (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt + (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
