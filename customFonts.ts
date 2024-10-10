@@ -3,6 +3,7 @@ namespace Fonts {
     
     let ligs: string[] = []
     let ligages: Image[] = []
+    let ligwidth: number[] = []
     let letterspace: number = 1
 
     export function drawTransparentImage(src: Image, to: Image, x: number, y: number) {
@@ -13,12 +14,23 @@ namespace Fonts {
     }
 
     //%block="set $glyph to $image=screen_image_picker"
-    export function SetCharecter(glyph: string, image: Image){
+    export function SetCharecter(glyph: string, image: Image, stay:boolean){
         if (ligs.indexOf(glyph) == -1) {
             ligs.push(glyph)
             ligages.push(image)
+            if stay {
+                ligwidth.push(0)
+            } else {
+                ligwidth.push(image.width)
+            }
         } else {
             ligages[ligs.indexOf(glyph)] = image
+            if stay {
+                ligwidth[ligs.indexOf(glyph)] = 0
+            } else {
+                ligwidth[ligs.indexOf(glyph)] = image.width
+            }
+            
         }
     }
 
@@ -42,6 +54,9 @@ namespace Fonts {
         let heig = 0
         let widt = 0
         let curwidt = 0
+        let uwidt = 0
+        let swidt = 0
+        let lwidt: number[] = []
 
         for (let currentletter = 0; currentletter < input.length; currentletter++) {
 
@@ -52,7 +67,14 @@ namespace Fonts {
 
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
-                widt += ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
+                uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
+                lwidt.push(uwidt)
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] == 0) {
+                    swidt = uwidt
+                } else {
+                    swidt = 0
+                }
+                widt += Math.abs(uwidt - swidt)
             } else if (input.charAt(currentletter2) == " ") {
                 widt += 3*letterspace
             }
@@ -63,9 +85,17 @@ namespace Fonts {
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
 
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt, 0+(heig-ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
-                curwidt += letterspace
-                curwidt += ligages[(ligs.indexOf(input.charAt(currentletter3)))].width
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt, 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
+                    swidt = uwidt
+                } else {
+                    swidt = 0
+                }
+                if (uwidt > 0) {
+                    curwidt += letterspace
+                }
+                curwidt += Math.abs(uwidt - swidt)
             } else if (input.charAt(currentletter3) == " ") {
                 curwidt += 3*letterspace
             }
