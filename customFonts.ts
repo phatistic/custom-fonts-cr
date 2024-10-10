@@ -94,7 +94,7 @@ namespace Fonts {
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, (curwidt - nwidt) - (Math.abs(nwidt - swidt) % nwidt), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, (curwidt - nwidt) - (Math.abs(nwidt - swidt)), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
                     swidt = nwidt
                 } else {
