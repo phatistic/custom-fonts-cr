@@ -56,6 +56,7 @@ namespace Fonts {
         let curwidt = 0
         let uwidt = 0
         let swidt = 0
+        let nwidt = 0
         let lwidt: number[] = []
 
         for (let currentletter = 0; currentletter < input.length; currentletter++) {
@@ -85,13 +86,19 @@ namespace Fonts {
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
 
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (swidt + Math.abs(swidt - uwidt)), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3) + 1))] == 0) {
                     swidt = uwidt
                 } else {
                     swidt = 0
                 }
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
+                    nwidt = ligages[(ligs.indexOf(input.charAt(currentletter3)))].width
+                } else {
+                    nwidt = 0
+                }
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                
                 if (uwidt > 0) {
                     curwidt += letterspace
                 }
