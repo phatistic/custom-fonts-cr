@@ -13,19 +13,19 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //%block="set $glyph to $image=screen_image_picker"
-    export function SetCharecter(glyph: string, image: Image, stay:boolean){
+    //%block="set $glyph to $image=screen_image_picker and staying $notmove"
+    export function SetCharecter(glyph: string, image: Image, notmove: boolean){
         if (ligs.indexOf(glyph) == -1) {
             ligs.push(glyph)
             ligages.push(image)
-            if stay {
+            if (notmove) {
                 ligwidth.push(0)
             } else {
                 ligwidth.push(image.width)
             }
         } else {
             ligages[ligs.indexOf(glyph)] = image
-            if stay {
+            if (notmove) {
                 ligwidth[ligs.indexOf(glyph)] = 0
             } else {
                 ligwidth[ligs.indexOf(glyph)] = image.width
