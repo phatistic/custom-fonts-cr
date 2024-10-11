@@ -96,26 +96,26 @@ namespace Fonts {
         let swidt = 0
         let nwidt = 0
         let lwidt: number[] = []
-        let nc = 0
-        let nch = 0
+        let nci = 0
+        let nchi = 0
         let currentletter = 0
-        while (currentletter < input.length) do {
+        while (currentletter < input.length) {
             
             if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
                 heig = Math.max(heig, ligages[(ligs.indexOf(input.charAt(currentletter)))].height)
-                nc += ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
+                nci += ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
             
                 if (pwidt > 0) {
-                    if (nc > pwidt) {
+                    if (nci > pwidt) {
                         heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
-                        nc = 0
+                        nci = 0
                     } else if (input.charAt(currentletter) == " "){
                         if (currentletter + 1 < input.len && input.charAt(currentletter + 1) == "\\") {
                             if (currentletter + 2 < input.len && input.charAt(currentletter + 2) == "n") {
                                 if (currentletter + 3 < input.len && input.charAt(currentletter + 3) == " ") {
                                     heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
                                     currentletter += 3
-                                    nc = 0
+                                    nci = 0
                                 }
                             }
                         }
@@ -125,8 +125,8 @@ namespace Fonts {
             currentletter += 1
         }
         let currentletter2 = 0
-        nc = 0
-        while (currentletter2 < input.length) do {
+        let nci = 0
+        while (currentletter2 < input.length) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
                 nwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
@@ -137,22 +137,22 @@ namespace Fonts {
                     swidt = 0
                 }
                 if (uwidt > 0) {
-                    nc += Math.abs(uwidt - swidt)
+                    nci += Math.abs(uwidt - swidt)
                 }
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] > 0) {
-                    nc += letterspace
+                    nci += letterspace
                 }
             } else if (input.charAt(currentletter2) == " ") {
-                nc += 3*letterspace
+                nci += 3*letterspace
             }
             if (pwidt > 0) {
-                if (nc > pwidt) {
-                    nc = 0
+                if (nci > pwidt) {
+                    nci = 0
                 } else if (input.charAt(currentletter2) == " ") {
                     if (currentletter2 + 1 < input.len && input.charAt(currentletter2 + 1) == "\\" {
                         if (currentletter2 + 2 < input.len && input.charAt(currentletter2 + 2) == "n") {
                             if (input.charAt(currentletter2 + 3) == " ") {
-                                nc = 0
+                                nci = 0
                                 currentletter2 += 3
                             }
                         }
@@ -165,9 +165,9 @@ namespace Fonts {
         }
         let output = image.create(widt, heig)
         let currentletter3 = 0
-        nc = 0
-        nch = 0
-        while (currentletter3 < input.length) do {
+        let nci = 0
+        let nchi = 0
+        while (currentletter3 < input.length) {
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
@@ -175,32 +175,32 @@ namespace Fonts {
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, nch + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, nchi + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
                     swidt = 0
                 }
                 if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0){
-                    nc += letterspace
+                    nci += letterspace
                 }
                 if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0 ){
-                    nc += Math.abs(uwidt - nwidt)
+                    nci += Math.abs(uwidt - nwidt)
                 }
             } else if (input.charAt(currentletter3) == " ") {
-                nc += 3*letterspace
+                nci += 3*letterspace
             }
             if (pwidt > 0) {
-                if (nc > pwidt) {
-                    nch += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
-                    nc = 0
+                if (nci > pwidt) {
+                    nchi += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
+                    nci = 0
                 } else if (input.charAt(currentletter3) == " "){
                     if (currentletter + 1 < input.len && input.charAt(currentletter3 + 1) == "\\") {
                         if (currentletter + 2 < input.len && input.charAt(currentletter3 + 2) == "n") {
                             if (currentletter + 3 < input.len && input.charAt(currentletter3 + 3) == " ") {
-                                nch += ligages[(ligs.indexOf(input.charAt(currentletter3)))].height
+                                nchi += ligages[(ligs.indexOf(input.charAt(currentletter3)))].height
                                 currentletter3 += 3
-                                nc = 0
+                                nci = 0
                             }
                         }
                     }
