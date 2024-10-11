@@ -16,12 +16,6 @@ namespace Fonts {
     //%block="set $glyph to $imgi=screen_image_picker and staying $notmove and store to $tid and erasecol $bcol and spacebar $scol"
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, tid: number, bcol: number, scol: number){
         let nid = tid
-        if (tid >= ligs.length){ 
-            ligs.push[]
-            ligages.push[]
-            ligswidth.push[]
-            nid = ligs.length - 1
-        }
         let scnwidt = true
         let scwidt = false
         let wi = 0
@@ -60,6 +54,12 @@ namespace Fonts {
         if (scol > 0 && scol < 16){
             imgj.replace(scol, 0)
         }
+        if (tid >= ligs.length){ 
+            ligs.push[]
+            ligages.push[]
+            ligswidth.push[]
+            nid = ligs.length - 1
+            }
         if (ligs[nid].indexOf(glyph) == -1) {
             ligs[nid].push(glyph)
             ligages[nid].push(imgj)
