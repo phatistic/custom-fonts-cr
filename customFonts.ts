@@ -1,4 +1,4 @@
-//% color="#16626B" icon="\u1d538"
+//% color="#16626B" icon="\uf044"
 namespace Fonts {
     
     let ligs: string[] = []
