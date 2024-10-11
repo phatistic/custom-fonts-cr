@@ -110,9 +110,9 @@ namespace Fonts {
                         heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
                         nc = 0
                     } else if (input.charAt(currentletter) == " "){
-                        if (input.charAt(currentletter + 1) == "\\") {
-                            if (input.charAt(currentletter + 2) == "n") {
-                                if (input.charAt(currentletter + 3) == " ") {
+                        if (currentletter + 1 < input.len && input.charAt(currentletter + 1) == "\\") {
+                            if (currentletter + 2 < input.len && input.charAt(currentletter + 2) == "n") {
+                                if (currentletter + 3 < input.len && input.charAt(currentletter + 3) == " ") {
                                     heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
                                     currentletter += 3
                                     nc = 0
@@ -149,8 +149,8 @@ namespace Fonts {
                 if (nc > pwidt) {
                     nc = 0
                 } else if (input.charAt(currentletter2) == " ") {
-                    if (input.charAt(currentletter2 + 1) == "\\" {
-                        if (input.charAt(currentletter2 + 2) == "n") {
+                    if (currentletter2 + 1 < input.len && input.charAt(currentletter2 + 1) == "\\" {
+                        if (currentletter2 + 2 < input.len && input.charAt(currentletter2 + 2) == "n") {
                             if (input.charAt(currentletter2 + 3) == " ") {
                                 nc = 0
                                 currentletter2 += 3
@@ -195,9 +195,9 @@ namespace Fonts {
                     nch += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
                     nc = 0
                 } else if (input.charAt(currentletter3) == " "){
-                    if (input.charAt(currentletter3 + 1) == "\\") {
-                        if (input.charAt(currentletter3 + 2) == "n") {
-                            if (input.charAt(currentletter3 + 3) == " ") {
+                    if (currentletter + 1 < input.len && input.charAt(currentletter3 + 1) == "\\") {
+                        if (currentletter + 2 < input.len && input.charAt(currentletter3 + 2) == "n") {
+                            if (currentletter + 3 < input.len && input.charAt(currentletter3 + 3) == " ") {
                                 nch += ligages[(ligs.indexOf(input.charAt(currentletter3)))].height
                                 currentletter3 += 3
                                 nc = 0
