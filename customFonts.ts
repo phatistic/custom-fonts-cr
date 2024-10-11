@@ -13,7 +13,7 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //% group="Color"
+    //% group="Create"
     //% block="set $glyph to $imgi=screen_image_picker and staying $notmove and erasecol $bcol and spacebar $scol"
     //% bcol.shadow=colorindexpicker
     //% scol.shadow=colorindexpicker
@@ -90,7 +90,7 @@ namespace Fonts {
         return ligs
     }
 
-    //% group="RenderImage"
+    //% group="Render"
     //% block="create the image of $input"
     export function SetImage(input: string) {
         let heig = 0
@@ -155,7 +155,8 @@ namespace Fonts {
         return output
 
     }
-    
+
+    //% group="Modify"
     //% block="set letter spacing to $input"
     export function SetSpace(input: number) {
        letterspace = input
