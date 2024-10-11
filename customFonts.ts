@@ -87,8 +87,8 @@ namespace Fonts {
         return ligs
     }
 
-    //%block="create the image of $input"
-    export function SetImage(input: string) {
+    //%block="create the image of $input in $pwidt"
+    export function SetImage(input: string, pwidt: number) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -96,14 +96,30 @@ namespace Fonts {
         let swidt = 0
         let nwidt = 0
         let lwidt: number[] = []
-
+        let nc = 0
+        let nch = 0
         for (let currentletter = 0; currentletter < input.length; currentletter++) {
-
+            nc += ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
             if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
                 heig = Math.max(heig, ligages[(ligs.indexOf(input.charAt(currentletter)))].height)
             }
+            if (pwidt > 0) {
+                if (nc > pwidt) {
+                    heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
+                    nc = 0
+                } else if (input.charAt(currentletter) == ""){
+                    if (input.charAt(currentletter + 1) == "\\" {
+                        if (input.charAt(currentletter + 2) == "n" {
+                            heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
+                            currentletter += 4
+                            nc = 0
+                        }
+                    }
+                }
+            }
         }
 
+        nc = 0
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
@@ -115,16 +131,33 @@ namespace Fonts {
                     swidt = 0
                 }
                 if (uwidt > 0) {
-                    widt += Math.abs(uwidt - swidt)
+                    nc += Math.abs(uwidt - swidt)
+                }
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] > 0) {
+                    nc += letterspace
                 }
             } else if (input.charAt(currentletter2) == " ") {
-                widt += 3*letterspace
+                nc += 3*letterspace
             }
-            widt += 1
+            
+            if (pwidt > 0) {
+                if (nc > pwidt) {
+                    nc = 0
+                } else if (input.charAt(currentletter2) == ""){
+                    if (input.charAt(currentletter2 + 1) == "\\" {
+                        if (input.charAt(currentletter2 + 2) == "n" {
+                            nc = 0
+                            currentletter2 += 4
+                        }
+                    }
+                }
+            }
+            widt = Math.max(widt, nc)
         }
         let output = image.create(widt, heig)
+        nc = 0
+        nch = 0
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
-
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
@@ -132,21 +165,35 @@ namespace Fonts {
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, (0 + nch) + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
                     swidt = 0
                 }
                 if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0){
-                    curwidt += letterspace
+                    nc += letterspace
                 }
                 if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0 ){
-                    curwidt += Math.abs(uwidt - nwidt)
+                    nc += Math.abs(uwidt - nwidt)
                 }
             } else if (input.charAt(currentletter3) == " ") {
-                curwidt += 3*letterspace
+                nc += 3*letterspace
             }
+            if (pwidt > 0) {
+                if (nc > pwidt) {
+                    nch += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
+                    nc = 0
+                } else if (input.charAt(currentletter3) == ""){
+                    if (input.charAt(currentletter3 + 1) == "\\" {
+                        if (input.charAt(currentletter3 + 2) == "n" {
+                            nch += ligages[(ligs.indexOf(input.charAt(currentletter3)))].height
+                            currentletter3 += 4
+                        }
+                    }
+                }
+            }
+            curwidt = nc
         }
         return output
 
