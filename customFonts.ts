@@ -13,7 +13,11 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //%block="set $glyph to $imgi=screen_image_picker and staying $notmove and erasecol $bcol and spacebar $scol"
+    //% block="set $glyph to $imgi=screen_image_picker and staying $notmove and erasecol $bcol and spacebar $scol"
+    //% bcol.shadow=colorindexpicker
+	    //% group="Color"
+    //% scol.shadow=colorindexpicker
+	    //% group="Color"
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number){
         let scnwidt = true
         let scwidt = false
@@ -72,22 +76,22 @@ namespace Fonts {
         }
     }
 
-    //%block="number of glyphs"
+    //% block="number of glyphs"
     export function NumOfGlyphs(): number {
         return ligs.length
     }
 
-    //%block="array of glyph images"
+    //% block="array of glyph images"
     export function ImageArray(): Image[] {
         return ligages
     }
 
-    //%block="array of glyphs"
+    //% block="array of glyphs"
     export function GlyphArray(): String[] {
         return ligs
     }
 
-    //%block="create the image of $input"
+    //% block="create the image of $input"
     export function SetImage(input: string) {
         let heig = 0
         let widt = 0
@@ -152,12 +156,12 @@ namespace Fonts {
 
     }
     
-    //%block="set letter spacing to $input"
+    //% block="set letter spacing to $input"
     export function SetSpace(input: number) {
        letterspace = input
     }
 
-    //%block="change letter spacing by $input"
+    //% block="change letter spacing by $input"
     export function ChangeSpace(input: number) {
         letterspace += input
     }
