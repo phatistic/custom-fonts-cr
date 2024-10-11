@@ -98,8 +98,7 @@ namespace Fonts {
         let lwidt: number[] = []
         let nci = 0
         let nchi = 0
-        let currentletter = 0
-        while (currentletter < input.length) {
+        while (let currentletter = 0; currentletter < input.length) {
             if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
                 heig = Math.max(heig, ligages[(ligs.indexOf(input.charAt(currentletter)))].height)
                 nci += ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
@@ -120,11 +119,10 @@ namespace Fonts {
                     }
                 }
             }
-            currentletter++
+            currentletter += 1
         }
-        let currentletter2 = 0
         let nci = 0
-        while (currentletter2 < input.length) {
+        while (let currentletter2 = 0; currentletter2 < input.length) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
                 nwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
@@ -159,13 +157,12 @@ namespace Fonts {
             }
             
             widt = Math.max(widt, nc)
-            currentletter2++
+            currentletter2 += 1
         }
         let output = image.create(widt, heig)
-        let currentletter3 = 0
         let nci = 0
         let nchi = 0
-        while (currentletter3 < input.length) {
+        while (let currentletter3 = 0; currentletter3 < input.length) {
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
@@ -208,7 +205,7 @@ namespace Fonts {
             if (curwidt != nc) {
                 curwidt = nc
             }
-            currentletter3++
+            currentletter3 += 1
         }
         return output
 
