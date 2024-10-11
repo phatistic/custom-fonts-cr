@@ -72,7 +72,6 @@ namespace Fonts {
         }
     }
 
-
     //%block="number of glyphs"
     export function NumOfGlyphs(): number {
         return ligs.length
@@ -107,15 +106,15 @@ namespace Fonts {
 
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
-                uwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
-                
+                uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
+                nwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
                 lwidt.push(uwidt)
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] == 0) {
                     swidt = uwidt
                 } else {
                     swidt = 0
                 }
-                if (ligwidth[(ligs.indexOf(input.charAt(currentletter2)))] > 0) {
+                if (uwidt > 0) {
                     widt += Math.abs(uwidt - swidt)
                 }
             } else if (input.charAt(currentletter2) == " ") {
@@ -123,9 +122,9 @@ namespace Fonts {
             }
             widt += 1
         }
-
         let output = image.create(widt, heig)
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
+
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
@@ -133,19 +132,17 @@ namespace Fonts {
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt + (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
-                if (ligwidth[nid][(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
                     swidt = 0
                 }
-                if (nwidt == 0) {
-                    curwidt += letterspace
-                } else if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0)) {
+                if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0){
                     curwidt += letterspace
                 }
-                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0)) {
-                    curwidt += Math.abs(uwidt - swidt)
+                if ( ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0 ){
+                    curwidt += Math.abs(uwidt - nwidt)
                 }
             } else if (input.charAt(currentletter3) == " ") {
                 curwidt += 3*letterspace
@@ -167,3 +164,5 @@ namespace Fonts {
     
     
 }
+
+    
