@@ -80,11 +80,13 @@ namespace Fonts {
         return ligs.length
     }
 
+    //% group="ArrayData"
     //% block="array of glyph images"
     export function ImageArray(): Image[] {
         return ligages
     }
 
+    //% group="ArrayData"
     //% block="array of glyphs"
     export function GlyphArray(): String[] {
         return ligs
@@ -162,6 +164,7 @@ namespace Fonts {
        letterspace = input
     }
 
+    //% group="Modify"
     //% block="change letter spacing by $input"
     export function ChangeSpace(input: number) {
         letterspace += input
