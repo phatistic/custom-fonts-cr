@@ -115,7 +115,9 @@ namespace Fonts {
                 } else {
                     swidt = 0
                 }
-                widt += Math.abs(uwidt - swidt)
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter2)))] > 0) {
+                    widt += Math.abs(uwidt - swidt)
+                }
             } else if (input.charAt(currentletter2) == " ") {
                 widt += 3*letterspace
             }
@@ -124,16 +126,14 @@ namespace Fonts {
 
         let output = image.create(widt, heig)
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
-
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
-                
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
                     nwidt = ligages[(ligs.indexOf(input.charAt(currentletter3)))].width
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt - (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt + (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[nid][(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
@@ -144,7 +144,9 @@ namespace Fonts {
                 } else if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0)) {
                     curwidt += letterspace
                 }
-                curwidt += Math.abs(uwidt - swidt)
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] > 0)) {
+                    curwidt += Math.abs(uwidt - swidt)
+                }
             } else if (input.charAt(currentletter3) == " ") {
                 curwidt += 3*letterspace
             }
