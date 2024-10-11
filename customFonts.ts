@@ -99,7 +99,7 @@ namespace Fonts {
         let nc = 0
         let nch = 0
         let currentletter = 0
-        while (currentletter < input.length) {
+        while (currentletter < input.length) do {
             
             if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
                 heig = Math.max(heig, ligages[(ligs.indexOf(input.charAt(currentletter)))].height)
@@ -126,7 +126,7 @@ namespace Fonts {
         }
         let currentletter2 = 0
         nc = 0
-        while (currentletter2 < input.length) {
+        while (currentletter2 < input.length) do {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
                 nwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
@@ -167,7 +167,7 @@ namespace Fonts {
         let currentletter3 = 0
         nc = 0
         nch = 0
-        while (currentletter3 < input.length) {
+        while (currentletter3 < input.length) do {
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
