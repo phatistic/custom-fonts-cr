@@ -13,11 +13,10 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
+    //% group="Color"
     //% block="set $glyph to $imgi=screen_image_picker and staying $notmove and erasecol $bcol and spacebar $scol"
     //% bcol.shadow=colorindexpicker
-	    //% group="Color"
     //% scol.shadow=colorindexpicker
-	    //% group="Color"
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number){
         let scnwidt = true
         let scwidt = false
@@ -75,7 +74,7 @@ namespace Fonts {
             
         }
     }
-
+    //% group="ArrayData"
     //% block="number of glyphs"
     export function NumOfGlyphs(): number {
         return ligs.length
@@ -91,6 +90,7 @@ namespace Fonts {
         return ligs
     }
 
+    //% group="RenderImage"
     //% block="create the image of $input"
     export function SetImage(input: string) {
         let heig = 0
