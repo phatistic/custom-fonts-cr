@@ -21,10 +21,13 @@ namespace Fonts {
         let wj = 0
         let si = 0
         let imgj = image.create(1, 1)
+        if (bcol > 0 && bcol < 16){
+            imgi.replace(bcol, 0)
+        }
         for (let xw = 0 ; xw < imgi.width ; xw++){
             si = 0
             for (let yh = 0 ; yh < imgi.height ; yh++){
-                if (scnwidt && ( imgi.getPixel(xw, yh) != bcol || (scwidt && imgi.getPixel( xw + 1 , yh) != bcol ))) {
+                if (scnwidt && ( imgi.getPixel(xw, yh) != 0 || (scwidt && imgi.getPixel( xw + 1 , yh) != 0 ))) {
                     si += 1
                 }
 
@@ -47,9 +50,6 @@ namespace Fonts {
         }
         imgj = image.create(Math.abs(wj - wi), imgi.height)
         drawTransparentImage(imgi, imgj, 0 - wi, 0)
-        if (bcol > 0 && bcol < 16){
-            imgj.replace(bcol, 0)
-        }
         if (scol > 0 && scol < 16){
             imgj.replace(scol, 0)
         }
