@@ -1,9 +1,9 @@
 //% color="#16626B" icon="\uf031"
 namespace Fonts {
     
-    let ligs: string[][] = []
-    let ligages: Image[][] = []
-    let ligwidth: number[][] = []
+    let ligs: string[][] = [[]]
+    let ligages: Image[][] = [[]]
+    let ligwidth: number[][] = [[]]
     let letterspace: number = 1
 
     export function drawTransparentImage(src: Image, to: Image, x: number, y: number) {
