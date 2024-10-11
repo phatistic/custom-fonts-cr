@@ -24,7 +24,7 @@ namespace Fonts {
         for (let xw = 0 ; xw < imgi.width ; xw++){
             si = 0
             for (let yh = 0 ; yh < imgi.height ; yh++){
-                if ( imgi.getPixel(xw, yh) != bcol || (scwidt && imgi.getPixel( xw + 1 , yh) != bcol )) {
+                if (scnwidt && ( imgi.getPixel(xw, yh) != bcol || (scwidt && imgi.getPixel( xw + 1 , yh) != bcol ))) {
                     si += 1
                 }
 
@@ -45,7 +45,7 @@ namespace Fonts {
                 }
             }
         }
-        imgj = image.create(Math.abs(wi - wj), imgi.height)
+        imgj = image.create(Math.abs(wj - wi), imgi.height)
         drawTransparentImage(imgi, imgj, 0 - wi, 0)
         if (bcol > 0 && bcol < 16){
             imgj.replace(bcol, 0)
