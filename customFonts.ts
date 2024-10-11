@@ -13,22 +13,60 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //%block="set $glyph to $image=screen_image_picker and staying $notmove"
-    export function SetCharecter(glyph: string, image: Image, notmove: boolean){
+    //%block="set $glyph to $imagei=screen_image_picker and staying $notmove and erasecol $bcol and spacebar $scol"
+    export function SetCharecter(glyph: string, imagei: Image, notmove: boolean, bcol: number, scol: number){
+        let scnwidt = true
+        let scwidt = false
+        let wi = 0
+        let wj = 0
+        let si = 0
+        let imgi = image.create(1, 1)
+        for (let xw = 0 ; xw < imagei.width ; xw++){
+            si = 0
+            for (let yh = 0 ; yh < imagei.height ; yh++){
+                if (imagei.color(xw, yh) != bcol ||(scwidt && image.color(xw + 1, yh) != bcol)){
+                    si += 1
+                }
+
+            }
+            if (scnwidt) {
+                if (scwidt) {
+                    if (si <= 0){
+                        wj = xw
+                        scnwidt = false
+                    }
+
+                } else {
+                    if (si > 0) {
+                        wi = xw
+                        scwidt = true
+                    }
+
+                }
+            }
+        }
+        imgi = image.create(Math.abs(wi - wj), imagei.height)
+        drawTransparentImage(imagei, imgi, 0 - wi, 0)
+        if (bcol > 0 && bcol < 16){
+            imgi.changeColor(bcol, 0)
+        }
+        if (scol > 0 && scol < 16){
+            imgi.changeColor(scol, 0)
+        }
         if (ligs.indexOf(glyph) == -1) {
             ligs.push(glyph)
-            ligages.push(image)
+            ligages.push(imgi)
             if (notmove) {
                 ligwidth.push(0)
             } else {
-                ligwidth.push(image.width)
+                ligwidth.push(imgi.width)
             }
         } else {
-            ligages[ligs.indexOf(glyph)] = image
+            ligages[ligs.indexOf(glyph)] = imagei
             if (notmove) {
                 ligwidth[ligs.indexOf(glyph)] = 0
             } else {
-                ligwidth[ligs.indexOf(glyph)] = image.width
+                ligwidth[ligs.indexOf(glyph)] = imgi.width
             }
             
         }
