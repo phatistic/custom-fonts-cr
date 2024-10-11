@@ -45,7 +45,7 @@ namespace Fonts {
                 }
             }
         }
-        imgj = image.create(Math.abs(wi - wj), imagei.height)
+        imgj = image.create(Math.abs(wi - wj), imgi.height)
         drawTransparentImage(imgi, imgj, 0 - wi, 0)
         if (bcol > 0 && bcol < 16){
             imgj.replace(bcol, 0)
