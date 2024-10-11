@@ -106,15 +106,17 @@ namespace Fonts {
 
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
-                uwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
-                
+                uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter2)))]
+                nwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
                 lwidt.push(uwidt)
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] == 0) {
                     swidt = uwidt
                 } else {
                     swidt = 0
                 }
-                widt += Math.abs(uwidt - swidt)
+                if (uwidt > 0) {
+                    widt += Math.abs(uwidt - swidt)
+                }
             } else if (input.charAt(currentletter2) == " ") {
                 widt += 3*letterspace
             }
