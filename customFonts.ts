@@ -20,7 +20,7 @@ namespace Fonts {
         let wi = 0
         let wj = 0
         let si = 0
-        let imgj = Image.create(1, 1)
+        let imgj = image.create(1, 1)
         for (let xw = 0 ; xw < imgi.width ; xw++){
             si = 0
             for (let yh = 0 ; yh < imgi.height ; yh++){
@@ -45,7 +45,7 @@ namespace Fonts {
                 }
             }
         }
-        imgj = Image.create(Math.abs(wi - wj), imagei.height)
+        imgj = image.create(Math.abs(wi - wj), imagei.height)
         drawTransparentImage(imgi, imgj, 0 - wi, 0)
         if (bcol > 0 && bcol < 16){
             imgj.replace(bcol, 0)
