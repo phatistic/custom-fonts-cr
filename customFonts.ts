@@ -17,9 +17,9 @@ namespace Fonts {
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, tid: number, bcol: number, scol: number){
         let nid = tid
         if (tid >= ligs.length){ 
-            ligs.push([])
-            ligages.push([])
-            ligswidth.push([])
+            ligs.push[]
+            ligages.push[]
+            ligswidth.push[]
             nid = ligs.length - 1
         }
         let scnwidt = true
