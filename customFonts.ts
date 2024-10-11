@@ -1,9 +1,9 @@
 //% color="#16626B" icon="\uf031"
 namespace Fonts {
     
-    let ligs: string[][] = [][]
-    let ligages: Image[][] = [][]
-    let ligwidth: number[][] = [][]
+    let ligs: string[] = []
+    let ligages: Image[] = []
+    let ligwidth: number[] = []
     let letterspace: number = 1
 
     export function drawTransparentImage(src: Image, to: Image, x: number, y: number) {
@@ -13,9 +13,8 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //%block="set $glyph to $imgi=screen_image_picker and staying $notmove and store to $tid and erasecol $bcol and spacebar $scol"
-    export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, tid: number, bcol: number, scol: number){
-        let nid = tid
+    //%block="set $glyph to $imgi=screen_image_picker and staying $notmove and erasecol $bcol and spacebar $scol"
+    export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number){
         let scnwidt = true
         let scwidt = false
         let wi = 0
@@ -54,69 +53,43 @@ namespace Fonts {
         if (scol > 0 && scol < 16){
             imgj.replace(scol, 0)
         }
-        if (tid >= ligs.length){ 
-            ligs.push[]
-            ligages.push[]
-            ligswidth.push[]
-            nid = ligs.length - 1
-            }
-        if (ligs[nid].indexOf(glyph) == -1) {
-            ligs[nid].push(glyph)
-            ligages[nid].push(imgj)
+        if (ligs.indexOf(glyph) == -1) {
+            ligs.push(glyph)
+            ligages.push(imgj)
             if (notmove) {
-                ligwidth[nid].push(0)
+                ligwidth.push(0)
             } else {
-                ligwidth[nid].push(imgj.width)
+                ligwidth.push(imgj.width)
             }
         } else {
-            ligages[nid][ligs.indexOf(glyph)] = imgj
+            ligages[ligs.indexOf(glyph)] = imgj
             if (notmove) {
-                ligwidth[nid][ligs.indexOf(glyph)] = 0
+                ligwidth[ligs.indexOf(glyph)] = 0
             } else {
-                ligwidth[nid][ligs.indexOf(glyph)] = imgj.width
+                ligwidth[ligs.indexOf(glyph)] = imgj.width
             }
             
         }
     }
 
 
-    //%block="number of glyphs in $tid"
-    export function NumOfGlyphs(tid: number): number {
-        let nid = tid
-        if (nid < ligs.length) {
-            return ligs[nid].length
-
-        }
-        nid = ligs.length - 1
-        return ligs[nid].length
+    //%block="number of glyphs"
+    export function NumOfGlyphs(): number {
+        return ligs.length
     }
 
-    //%block="array of glyph images in $tid"
-    export function ImageArray(tid: number): Image[] {
-        let nid = tid
-        if (nid < ligages.length) {
-            return ligages[nid]
-        }
-        nid = ligages.length - 1
-        return ligages[nid]
+    //%block="array of glyph images"
+    export function ImageArray(): Image[] {
+        return ligages
     }
 
-    //%block="array of glyphs in $tid"
-    export function GlyphArray(tid: number): String[] {
-        let nid = tid
-        if (nid < ligs.length) {
-            return ligs[nid]
-        }
-        nid = ligs.length - 1
-        return ligs[nid]
+    //%block="array of glyphs"
+    export function GlyphArray(): String[] {
+        return ligs
     }
 
-    //%block="create the image of $input in $tid"
-    export function SetImage(input: string, tid: number) {
-        let nid = tid
-        if (nid >= ligs.length) {
-            nid = ligs.length - 1
-        }
+    //%block="create the image of $input"
+    export function SetImage(input: string) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -127,17 +100,17 @@ namespace Fonts {
 
         for (let currentletter = 0; currentletter < input.length; currentletter++) {
 
-            if (!(ligs[nid].indexOf(input.charAt(currentletter)) == -1)) {
-                heig = Math.max(heig, ligages[nid][(ligs[nid].indexOf(input.charAt(currentletter)))].height)
+            if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
+                heig = Math.max(heig, ligages[(ligs.indexOf(input.charAt(currentletter)))].height)
             }
         }
 
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
-            if (!(ligs[nid].indexOf(input.charAt(currentletter2)) == -1)) {
-                uwidt = ligages[nid][(ligs[nid].indexOf(input.charAt(currentletter2)))].width
+            if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
+                uwidt = ligages[(ligs.indexOf(input.charAt(currentletter2)))].width
                 
                 lwidt.push(uwidt)
-                if (ligwidth[nid][(ligs[nid].indexOf(input.charAt(currentletter2) + 1))] == 0) {
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter2) + 1))] == 0) {
                     swidt = uwidt
                 } else {
                     swidt = 0
@@ -152,23 +125,23 @@ namespace Fonts {
         let output = image.create(widt, heig)
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
 
-            if (!(ligs[nid].indexOf(input.charAt(currentletter3)) == -1)) {
-                uwidt = ligwidth[nid][(ligs[nid].indexOf(input.charAt(currentletter3)))]
+            if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
+                uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
                 
-                if (ligwidth[nid][(ligs[nid].indexOf(input.charAt(currentletter3)))] == 0) {
-                    nwidt = ligages[nid][(ligs[nid].indexOf(input.charAt(currentletter3)))].width
+                if (ligwidth[(ligs.indexOf(input.charAt(currentletter3)))] == 0) {
+                    nwidt = ligages[(ligs.indexOf(input.charAt(currentletter3)))].width
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[nid][(ligs[nid].indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt - (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[nid][(ligs[nid].indexOf(input.charAt(currentletter3)))].height))
-                if (ligwidth[nid][(ligs[nid].indexOf(input.charAt(currentletter3 + 1)))] == 0) {
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - (nwidt - (Math.abs(nwidt - (nwidt - swidt)))), 0 + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                if (ligwidth[nid][(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
                     swidt = 0
                 }
                 if (nwidt == 0) {
                     curwidt += letterspace
-                } else if (ligwidth[nid][(ligs[nid].indexOf(input.charAt(currentletter3 + 1)))] > 0)) {
+                } else if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] > 0)) {
                     curwidt += letterspace
                 }
                 curwidt += Math.abs(uwidt - swidt)
