@@ -100,21 +100,23 @@ namespace Fonts {
         let nch = 0
         let currentletter = 0
         while (currentletter < input.length) {
-            nc += ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
+            
             if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
                 heig = Math.max(heig, ligages[(ligs.indexOf(input.charAt(currentletter)))].height)
-            }
-            if (pwidt > 0) {
-                if (nc > pwidt) {
-                    heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
-                    nc = 0
-                } else if (input.charAt(currentletter) == " "){
-                    if (input.charAt(currentletter + 1) == "\\" {
-                        if (input.charAt(currentletter + 2) == "n" {
-                            if (input.charAt(currentletter + 3) == " ") {
-                                heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
-                                currentletter += 3
-                                nc = 0
+                nc += ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
+            
+                if (pwidt > 0) {
+                    if (nc > pwidt) {
+                        heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
+                        nc = 0
+                    } else if (input.charAt(currentletter) == " "){
+                        if (input.charAt(currentletter + 1) == "\\") {
+                            if (input.charAt(currentletter + 2) == "n") {
+                                if (input.charAt(currentletter + 3) == " ") {
+                                    heig += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
+                                    currentletter += 3
+                                    nc = 0
+                                }
                             }
                         }
                     }
@@ -122,7 +124,7 @@ namespace Fonts {
             }
             currentletter += 1
         }
-        let currentletter = 0
+        let currentletter2 = 0
         nc = 0
         while (currentletter2 < input.length) {
             if (!(ligs.indexOf(input.charAt(currentletter2)) == -1)) {
@@ -143,13 +145,12 @@ namespace Fonts {
             } else if (input.charAt(currentletter2) == " ") {
                 nc += 3*letterspace
             }
-            
             if (pwidt > 0) {
                 if (nc > pwidt) {
                     nc = 0
-                } else if (input.charAt(currentletter2) == " "){
+                } else if (input.charAt(currentletter2) == " ") {
                     if (input.charAt(currentletter2 + 1) == "\\" {
-                        if (input.charAt(currentletter2 + 2) == "n" {
+                        if (input.charAt(currentletter2 + 2) == "n") {
                             if (input.charAt(currentletter2 + 3) == " ") {
                                 nc = 0
                                 currentletter2 += 3
@@ -158,6 +159,7 @@ namespace Fonts {
                     }
                 }
             }
+            
             widt = Math.max(widt, nc)
             currentletter2 += 1
         }
@@ -173,7 +175,7 @@ namespace Fonts {
                 } else {
                     nwidt = 0
                 }
-                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, (0 + nch) + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
+                drawTransparentImage(ligages[(ligs.indexOf(input.charAt(currentletter3)))], output, curwidt - nwidt, nch + (heig - ligages[(ligs.indexOf(input.charAt(currentletter3)))].height))
                 if (ligwidth[(ligs.indexOf(input.charAt(currentletter3 + 1)))] == 0) {
                     swidt = nwidt
                 } else {
@@ -193,8 +195,8 @@ namespace Fonts {
                     nch += ligages[(ligs.indexOf(input.charAt(currentletter)))].height
                     nc = 0
                 } else if (input.charAt(currentletter3) == " "){
-                    if (input.charAt(currentletter3 + 1) == "\\" {
-                        if (input.charAt(currentletter3 + 2) == "n" {
+                    if (input.charAt(currentletter3 + 1) == "\\") {
+                        if (input.charAt(currentletter3 + 2) == "n") {
                             if (input.charAt(currentletter3 + 3) == " ") {
                                 nch += ligages[(ligs.indexOf(input.charAt(currentletter3)))].height
                                 currentletter3 += 3
@@ -204,6 +206,7 @@ namespace Fonts {
                     }
                 }
             }
+            
             if (curwidt != nc) {
                 curwidt = nc
             }
