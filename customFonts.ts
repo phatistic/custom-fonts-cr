@@ -93,8 +93,10 @@ namespace Fonts {
     }
 
     //% group="Render"
-    //% block="create the image of $input"
-    export function SetImage(input: string) {
+    //% block="create the image of $input from $ocol to $ncol"
+    //% ocol.shadow=colorindexpicker
+    //% ncol.shadow=colorindexpicker
+    export function SetImage(input: string, col:number) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -154,6 +156,7 @@ namespace Fonts {
                 curwidt += 3*letterspace
             }
         }
+        output.replace(ocol, ncol)
         return output
 
     }
