@@ -93,10 +93,10 @@ namespace Fonts {
     }
 
     //% group="Render"
-    //% block="create the image of $input from $ocol to $ncol"
+    //% block="create the image of $input and color array from $ocol to $ncol"
     //% ocol.shadow=colorindexpicker
     //% ncol.shadow=colorindexpicker
-    export function SetImage(input: string, col:number) {
+    export function SetImageAndColorArray(input: string, ocol: number[], ncol: number[]) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -156,9 +156,20 @@ namespace Fonts {
                 curwidt += 3*letterspace
             }
         }
-        output.replace(ocol, ncol)
+        for let coli = 0; coli < Math.min(ocol.length, ncol.lenght); coli++ {
+            if ((ocol[coli] % 16 > 0 || ncol[coli] % 16 > 0))
+            output.replace(ocol[coli] % 16, ncol[coli] % 16)
+        }
         return output
 
+    }
+
+    //% group="Render"
+    //% block="create the image of $input from $ocol to $ncol"
+    //% ocol.shadow=colorindexpicker
+    //% ncol.shadow=colorindexpicker
+    export function setimageAndColor(input: string, ocol: number, ncol: number) {
+        return SetImageAndColorArray(input , [ocol], [ncol])
     }
 
     //% group="Modify"
