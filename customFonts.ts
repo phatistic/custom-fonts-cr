@@ -169,7 +169,9 @@ namespace Fonts {
     //% ocol.shadow=colorindexpicker
     //% ncol.shadow=colorindexpicker
     export function SetImageAndColor(input: string, ocol: number, ncol: number) {
-        return SetImageAndColArr(input , [ocol], [ncol])
+        let locol: number[] = [ocol]
+        let lncol: number[] = [ncol]
+        return SetImageAndColArr(input , locol, lncol)
     }
 
     //% group="Modify"
