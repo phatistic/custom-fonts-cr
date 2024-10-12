@@ -93,10 +93,9 @@ namespace Fonts {
     }
 
     //% group="Render"
-    //% block="create the image of $input and re color from $ocol to $ncol"
-    //% ocol.shadow=colorindexpicker
-    //% ncol.shadow=colorindexpicker
-    export function SetImageAndReCol(input: string, ocol: number, ncol: number) {
+    //% block="create the image of $input and get $col"
+    //% col.shadow=colorindexpicker
+    export function SetImage(input: string, col: number): image {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -156,8 +155,10 @@ namespace Fonts {
                 curwidt += 3*letterspace
             }
         }
-        if (ocol % 16 > 0 || ncol % 16 > 0)
-            output.replace(ocol % 16, ncol % 16)
+        if (col > 0){
+            for (let coli = 1; coli < 16; coli++) {
+                output.replace(coli, col)
+            }
         }
         return output
 
