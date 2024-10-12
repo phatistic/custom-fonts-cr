@@ -96,7 +96,7 @@ namespace Fonts {
     //% block="create the image of $input and color array from $ocol to $ncol"
     //% ocol.shadow=colorindexpicker
     //% ncol.shadow=colorindexpicker
-    export function SetImageAndColorArray(input: string, ocol: number[], ncol: number[]) {
+    export function SetImageAndColArr(input: string, ocol: number[], ncol: number[]) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -168,8 +168,8 @@ namespace Fonts {
     //% block="create the image of $input from $ocol to $ncol"
     //% ocol.shadow=colorindexpicker
     //% ncol.shadow=colorindexpicker
-    export function setimageAndColor(input: string, ocol: number, ncol: number) {
-        return SetImageAndColorArray(input , [ocol], [ncol])
+    export function SetImageAndColor(input: string, ocol: number, ncol: number) {
+        return SetImageAndColArr(input , [ocol], [ncol])
     }
 
     //% group="Modify"
