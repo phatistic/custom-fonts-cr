@@ -93,9 +93,8 @@ namespace Fonts {
     }
 
     //% group="Render"
-    //% block="create the image of $input and get $col"
-    //% col.shadow=colorindexpicker
-    export function SetImage(input: string, col: number): image {
+    //% block="create the image of $input"
+    export function SetImage(input: string) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -153,11 +152,6 @@ namespace Fonts {
                 }
             } else if (input.charAt(currentletter3) == " ") {
                 curwidt += 3*letterspace
-            }
-        }
-        if (col > 0){
-            for (let coli = 1; coli < 16; coli++) {
-                output.replace(coli, col)
             }
         }
         return output
