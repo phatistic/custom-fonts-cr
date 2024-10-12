@@ -93,10 +93,10 @@ namespace Fonts {
     }
 
     //% group="Render"
-    //% block="create the image of $input and color array from $ocol to $ncol"
+    //% block="create the image of $input and re color from $ocol to $ncol"
     //% ocol.shadow=colorindexpicker
     //% ncol.shadow=colorindexpicker
-    export function SetImageAndColArr(input: string, ocol: number[], ncol: number[]) {
+    export function SetImageAndReCol(input: string, ocol: number, ncol: number) {
         let heig = 0
         let widt = 0
         let curwidt = 0
@@ -156,22 +156,11 @@ namespace Fonts {
                 curwidt += 3*letterspace
             }
         }
-        for let coli = 0; coli < Math.min(ocol.length, ncol.lenght); coli++ {
-            if ((ocol[coli] % 16 > 0 || ncol[coli] % 16 > 0))
-            output.replace(ocol[coli] % 16, ncol[coli] % 16)
+        if (ocol % 16 > 0 || ncol % 16 > 0)
+            output.replace(ocol % 16, ncol % 16)
         }
         return output
 
-    }
-
-    //% group="Render"
-    //% block="create the image of $input from $ocol to $ncol"
-    //% ocol.shadow=colorindexpicker
-    //% ncol.shadow=colorindexpicker
-    export function SetImageAndColor(input: string, ocol: number, ncol: number) {
-        let locol: number[] = [ocol]
-        let lncol: number[] = [ncol]
-        return SetImageAndColArr(input , locol, lncol)
     }
 
     //% group="Modify"
