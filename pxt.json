@@ -1,6 +1,5 @@
 {
     "name": "Custom Fonts",
-    "version": "2.0.0",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -8,7 +7,6 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "assets.json",
         "README.md",
         "tilemap.g.jres",
         "tilemap.g.ts"
@@ -17,11 +15,11 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.16",
+        "target": "1.2.16",
         "targetId": "arcade"
     },
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
