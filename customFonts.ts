@@ -14,7 +14,6 @@ namespace fonts {
     }
 
     //% group="Create"
-    //% blockid=customfontscr_setupcharim
     //% block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
     //% bcol.shadow=colorindexpicker
     //% scol.shadow=colorindexpicker
@@ -78,7 +77,6 @@ namespace fonts {
     }
 
     //% group="Create"
-    //% blockid=customfontscr_sercharfromsheet
     //% block="Set $PngSheet=srceen_image_picker with $GroupChar if has from $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
     //% bcl.shadow=colorindexpicker
     //% scl.shadow=colorindexpicker
@@ -103,28 +101,24 @@ namespace fonts {
     }
 
     //% group="ArrayData"
-    //% blockid=customfontscr_numofglyphs
     //% block="number of glyphs"
     export function NumOfGlyphs(): number {
         return ligs.length
     }
 
     //% group="ArrayData"
-    //% blockid=font_arrofglyphimg
     //% block="array of glyph images"
     export function ImageArray(): Image[] {
         return ligages
     }
 
     //% group="ArrayData"
-    //% blockid=customfontscr_arrofglyphs
     //% block="array of glyphs"
     export function GlyphArray(): String[] {
         return ligs
     }
 
     //% group="Render"
-    //% blockid=customfontscr_createimgofstr
     //% block="create the image of $input in $iwidt and fill $icol"
     //% icol.shadow=colorindexpicker
     export function SetImage(input: string, iwidt: number, icol: number) {
@@ -233,14 +227,12 @@ namespace fonts {
     }
 
     //% group="Modify"
-    //% blockid=customfontscr_setspacingletter
     //% block="set letter spacing to $input"
     export function SetSpace(input: number) {
         letterspace = input
     }
 
     //% group="Modify"
-    //% blockid=customfontscr_changespacingletter
     //% block="change letter spacing by $input"
     export function ChangeSpace(input: number) {
         letterspace += input
