@@ -1,6 +1,6 @@
 {
-    "name": "Custom Fonts",
-    "description": "",
+    "name": "Custom Fonts Cradit",
+    "description": "Text Render Extension \n Like Basic Unicode \n cradit: rishiporwal",
     "dependencies": {
         "device": "*"
     },
