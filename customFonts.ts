@@ -1,5 +1,5 @@
 //% color="#f2c81f" icon="\uf044"
-namespace Fonts {
+namespace fonts {
 
     let ligs: string[] = []
     let ligages: Image[] = []
@@ -14,7 +14,7 @@ namespace Fonts {
     }
 
     //% group="Create"
-    //% blockid=font_setupcharimg
+    //% blockid=fonts_setupcharimg
     //% block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
     //% bcol.shadow=colorindexpicker
     //% scol.shadow=colorindexpicker
@@ -78,7 +78,7 @@ namespace Fonts {
     }
 
     //% group="Create"
-    //% blockid=font_sercharfromsheet
+    //% blockid=fonts_sercharfromsheet
     //% block="Set Charcter $PngSheet=srceen_image_picker with $GroupChar but $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
     //% bcl.shadow=colorindexpicker
     //% scl.shadow=colorindexpicker
@@ -103,7 +103,7 @@ namespace Fonts {
     }
 
     //% group="ArrayData"
-    //% blockid=font_numofglyphs
+    //% blockid=fonts_numofglyphs
     //% block="number of glyphs"
     export function NumOfGlyphs(): number {
         return ligs.length
@@ -117,14 +117,14 @@ namespace Fonts {
     }
 
     //% group="ArrayData"
-    //% blockid=font_arrofglyphs
+    //% blockid=fonts_arrofglyphs
     //% block="array of glyphs"
     export function GlyphArray(): String[] {
         return ligs
     }
 
     //% group="Render"
-    //% blockid=font_createimgofstr
+    //% blockid=fonts_createimgofstr
     //% block="create the image of $input in $iwidt and fill $icol"
     //% icol.shadow=colorindexpicker
     export function SetImage(input: string, iwidt: number, icol: number) {
@@ -233,14 +233,14 @@ namespace Fonts {
     }
 
     //% group="Modify"
-    //% blockid=font_setspacingletter
+    //% blockid=fonts_setspacingletter
     //% block="set letter spacing to $input"
     export function SetSpace(input: number) {
         letterspace = input
     }
 
     //% group="Modify"
-    //% blockid=font_changespacingletter
+    //% blockid=fonts_changespacingletter
     //% block="change letter spacing by $input"
     export function ChangeSpace(input: number) {
         letterspace += input
