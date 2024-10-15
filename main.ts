@@ -17,7 +17,7 @@ namespace Fonts {
     //%block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
     //%bcol.shadow=colorindexpicker
     //%scol.shadow=colorindexpicker
-    export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number) {
+    export function setCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number) {
         let scnwidt = true
         let scwidt = false
         let wi = 0
