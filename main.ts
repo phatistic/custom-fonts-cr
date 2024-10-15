@@ -13,10 +13,10 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //% group="Create"
-    //% block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
-    //% bcol.shadow=colorindexpicker
-    //% scol.shadow=colorindexpicker
+    //%group="Create"
+    //%block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
+    //%bcol.shadow=colorindexpicker
+    //%scol.shadow=colorindexpicker
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number) {
         let scnwidt = true
         let scwidt = false
@@ -75,10 +75,10 @@ namespace Fonts {
         }
     }
 
-    //% group="Create"
-    //% block="Set $PngSheet=srceen_image_picker with $GroupChar if has from $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
-    //% bcl.shadow=colorindexpicker
-    //% scl.shadow=colorindexpicker
+    //%group="Create"
+    //%block="Set $PngSheet=srceen_image_picker with $GroupChar if has from $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
+    //%bcl.shadow=colorindexpicker
+    //%scl.shadow=colorindexpicker
     export function setCharFromSheet(PngSheet: Image, GroupChar: string, StayChar: string, twidt: number, theig: number, bcl: number, scl: number) {
         let gwidt = Math.floor(PngSheet.width / twidt)
         let gheig = Math.floor(PngSheet.height / theig)
@@ -99,27 +99,27 @@ namespace Fonts {
         }
     }
 
-    //% group="ArrayData"
-    //% block="number of glyphs"
+    //%group="ArrayData"
+    //%block="number of glyphs"
     export function NumOfGlyphs(): number {
         return ligs.length
     }
 
-    //% group="ArrayData"
-    //% block="array of glyph images"
+    //%group="ArrayData"
+    //%block="array of glyph images"
     export function ImageArray(): Image[] {
         return ligages
     }
 
-    //% group="ArrayData"
-    //% block="array of glyphs"
+    //%group="ArrayData"
+    //%block="array of glyphs"
     export function GlyphArray(): String[] {
         return ligs
     }
 
-    //% group="Render"
-    //% block="create the image of $input in $iwidt and fill $icol"
-    //% icol.shadow=colorindexpicker
+    //%group="Render"
+    //%block="create the image of $input in $iwidt and fill $icol"
+    //%icol.shadow=colorindexpicker
     export function SetImage(input: string, iwidt: number, icol: number) {
         let heig = 0
         let widt = 0
@@ -224,14 +224,14 @@ namespace Fonts {
         return output
     }
 
-    //% group="Modify"
-    //% block="set letter spacing to $input"
+    //%group="Modify"
+    //%block="set letter spacing to $input"
     export function SetSpace(input: number) {
         letterspace = input
     }
 
-    //% group="Modify"
-    //% block="change letter spacing by $input"
+    //%group="Modify"
+    //%block="change letter spacing by $input"
     export function ChangeSpace(input: number) {
         letterspace += input
     }
