@@ -1,5 +1,5 @@
 //% color="#f2c81f" icon="\uf044"
-namespace fonts {
+namespace Fonts {
 
     let ligs: string[] = []
     let ligages: Image[] = []
@@ -84,17 +84,17 @@ namespace fonts {
         let gwidt = Math.floor(PngSheet.width / twidt)
         let gheig = Math.floor(PngSheet.height / theig)
         let uig = image.create(twidt, theig)
-        let x0 = 0
-        let y0 = 0
-        let tx0 = 0
-        let ty0 = 0
+        let xi = 0
+        let yi = 0
+        let txi = 0
+        let tyi = 0
         for (let tvn = 0; tvn < GroupChar.length; tvn++) {
             uig = image.create(twidt, theig)
-            x0 = tvn % gwidt
-            y0 = Math.floor(tvn / gwidt)
-            tx0 = x0 * twidt
-            ty0 = y0 * theig
-            drawTransparentImage(PngSheet, uig, 0 - tx0, 0 - ty0)
+            xi = tvn % gwidt
+            yi = Math.floor(tvn / gwidt)
+            txi = xi * twidt
+            tyi = yi * theig
+            drawTransparentImage(PngSheet, uig, 0 - txi, 0 - tyi)
             SetCharecter(GroupChar.charAt(tvn), uig, StayChar.includes(GroupChar.charAt(tvn)), bcl, scl)
 
         }
