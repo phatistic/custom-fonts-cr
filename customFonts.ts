@@ -13,11 +13,12 @@ namespace Fonts {
         to.drawTransparentImage(src, x, y);
     }
 
+    //% group="Create"
     //% blockid=font_setupcharimg
     //% block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
     //% bcol.shadow=colorindexpicker
     //% scol.shadow=colorindexpicker
-        //% group="Create"
+        
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number) {
         let scnwidt = true
         let scwidt = false
@@ -76,11 +77,11 @@ namespace Fonts {
         }
     }
 
+    //% group="Create"
     //% blockid=font_sercharfromsheet
     //% block="Set Charcter $PngSheet=srceen_image_picker with $GroupChar but $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
     //% bcl.shadow=colorindexpicker
     //% scl.shadow=colorindexpicker
-        //% group="Create"
     export function setCharFromSheet(PngSheet: Image, GroupChar: string, StayChar: string, twidt: number, theig: number, bcl: number, scl: number) {
         let gwidt = Math.floor(PngSheet.width / twidt)
         let gheig = Math.floor(PngSheet.height / theig)
@@ -101,31 +102,31 @@ namespace Fonts {
         }
     }
 
+    //% group="ArrayData"
     //% blockid=font_numofglyphs
     //% block="number of glyphs"
-        //% group="ArrayData"
     export function NumOfGlyphs(): number {
         return ligs.length
     }
 
+    //% group="ArrayData"
     //% blockid=font_arrofglyphimg
     //% block="array of glyph images"
-    //% group="ArrayData"
     export function ImageArray(): Image[] {
         return ligages
     }
 
+    //% group="ArrayData"
     //% blockid=font_arrofglyphs
     //% block="array of glyphs"
-        //% group="ArrayData"
     export function GlyphArray(): String[] {
         return ligs
     }
 
+    //% group="Render"
     //% blockid=font_createimgofstr
     //% block="create the image of $input in $iwidt and fill $icol"
     //% icol.shadow=colorindexpicker
-        //% group="Render"
     export function SetImage(input: string, iwidt: number, icol: number) {
         let heig = 0
         let widt = 0
@@ -231,16 +232,16 @@ namespace Fonts {
 
     }
 
+    //% group="Modify"
     //% blockid=font_setspacingletter
     //% block="set letter spacing to $input"
-        //% group="Modify"
     export function SetSpace(input: number) {
         letterspace = input
     }
 
+    //% group="Modify"
     //% blockid=font_changespacingletter
     //% block="change letter spacing by $input"
-        //% group="Modify"
     export function ChangeSpace(input: number) {
         letterspace += input
     }
