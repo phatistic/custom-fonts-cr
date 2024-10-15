@@ -76,7 +76,7 @@ namespace Fonts {
     }
 
     //%group="Create"
-    //%block="Set $PngSheet=srceen_image_picker with $GroupChar if has from $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
+    //%block="set $PngSheet=srceen_image_picker with $GroupChar if has from $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
     //%bcl.shadow=colorindexpicker
     //%scl.shadow=colorindexpicker
     export function setCharFromSheet(PngSheet: Image, GroupChar: string, StayChar: string, twidt: number, theig: number, bcl: number, scl: number) {
@@ -131,9 +131,7 @@ namespace Fonts {
         let wie = 0
         let hie = 0
         let hvi = 0
-
         for (let currentletter = 0; currentletter < input.length; currentletter++) {
-
             if (!(ligs.indexOf(input.charAt(currentletter)) == -1)) {
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter)))]
                 nwidt = ligages[(ligs.indexOf(input.charAt(currentletter)))].width
@@ -153,7 +151,6 @@ namespace Fonts {
                 }
             }
         }
-
         wie = 0
         widt = 0
         for (let currentletter2 = 0; currentletter2 < input.length; currentletter2++) {
@@ -183,7 +180,6 @@ namespace Fonts {
         hie = 0
         let output = image.create(widt, heig)
         for (let currentletter3 = 0; currentletter3 < input.length; currentletter3++) {
-
             if (!(ligs.indexOf(input.charAt(currentletter3)) == -1)) {
                 hvi = ligages[(ligs.indexOf(input.charAt(currentletter3)))].height
                 uwidt = ligwidth[(ligs.indexOf(input.charAt(currentletter3)))]
@@ -235,4 +231,6 @@ namespace Fonts {
     export function ChangeSpace(input: number) {
         letterspace += input
     }
+
+    
 }
