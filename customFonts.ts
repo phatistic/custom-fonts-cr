@@ -17,7 +17,6 @@ namespace Fonts {
     //% block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
     //% bcol.shadow=colorindexpicker
     //% scol.shadow=colorindexpicker
-        
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number) {
         let scnwidt = true
         let scwidt = false
@@ -223,7 +222,6 @@ namespace Fonts {
             }
         }
         return output
-
     }
 
     //% group="Modify"
@@ -237,5 +235,4 @@ namespace Fonts {
     export function ChangeSpace(input: number) {
         letterspace += input
     }
-
 }
