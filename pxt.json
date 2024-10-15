@@ -7,8 +7,8 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md",
         "customFonts.ts",
+        "README.md",
         "tilemap.g.jres",
         "tilemap.g.ts"
     ],
